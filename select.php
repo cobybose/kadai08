@@ -7,7 +7,7 @@ try {
 }
 
 //２．データ登録SQL作成
-$stmt = $pdo->prepare("SELECT * FROM gs_an_table");
+$stmt = $pdo->prepare("SELECT * FROM gs_bm_table");
 $status = $stmt->execute();
 
 //３．データ表示
@@ -21,7 +21,7 @@ if($status==false){
   while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
       $view .= '<p>';
       $view .= '<a href="detail.php?id='.$result["id"].'">';
-      $view .= $result["name"]."[".$result["indate"]."]<br>";
+      $view .= $result["book"]."[".$result["status"]."][".$result["indate"]."]<br>";
       $view .= '</a>';
       $view .= ' ';
         $view .= '<a href="delete.php?id='.$result["id"].'">';
@@ -50,7 +50,7 @@ if($status==false){
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-      <a class="navbar-brand" href="index.php">データ登録</a>
+      <a class="navbar-brand" href="index.php">BOOK登録</a>
     </div>
   </nav>
 </header>

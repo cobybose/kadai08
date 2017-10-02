@@ -12,7 +12,7 @@
 <header>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-    <div class="navbar-header"><a class="navbar-brand" href="select.php">データ一覧</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="select.php">BOOK一覧</a></div>
   </nav>
 </header>
 <!-- Head[End] -->
@@ -24,6 +24,12 @@
     <legend>ブックマーク</legend>
      <label>書籍名：<input type="text" name="name"></label><br>
      <label>URL：<input type="text" name="email"></label><br>
+     <label>ステータス：
+         <select name="status">
+            <option value="未読">未読</option>
+            <option value="読了">読了</option>
+         </select>
+     </label><br>
      <label><textArea name="naiyou" rows="4" cols="40"></textArea></label><br>
      <input type="submit" value="送信">
     </fieldset>

@@ -10,7 +10,7 @@ try {
 }
 
 //２．データ登録SQL作成
-$stmt = $pdo->prepare("SELECT * FROM gs_an_table WHERE id=:id");
+$stmt = $pdo->prepare("SELECT * FROM gs_bm_table WHERE id=:id");
 $stmt->bindValue(':id', $id);
 $status = $stmt->execute();
 
@@ -41,19 +41,25 @@ if($status==false){
 <header>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-    <div class="navbar-header"><a class="navbar-brand" href="select.php">データ一覧</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="select.php">BOOK一覧</a></div>
   </nav>
 </header>
 <!-- Head[End] -->
 
 <!-- Main[Start] -->
-<form method="post" action="update.php">
+<form method="post" action="bm_update_view.php">
   <div class="jumbotron">
    <fieldset>
-    <legend>フリーアンケート</legend>
-     <label>名前：<input type="text" name="name" value="<?=$row["name"]?>"></label><br>
-     <label>Email：<input type="text" name="email" value="<?=$row["email"]?>"></label><br>
-     <label><textArea name="naiyou" rows="4" cols="40"><?=$row["naiyou"]?></textArea></label><br>
+    <legend>ブックマーク</legend>
+     <label>書籍名：<input type="text" name="name" value="<?=$row["book"]?>"></label><br>
+     <label>URL：<input type="text" name="email" value="<?=$row["url"]?>"></label><br>
+     <label>ステータス：
+         <select name="status">
+            <option value="未読">未読</option>
+            <option value="読了">読了</option>
+         </select>
+     </label><br>
+     <label><textArea name="naiyou" rows="4" cols="40"><?=$row["comment"]?></textArea></label><br>
      <input type="hidden" name="id" value="<?=$id?>">
      <input type="submit" value="送信">
     </fieldset>

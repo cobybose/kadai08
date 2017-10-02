@@ -3,6 +3,7 @@
 if(
   !isset($_POST["name"]) || $_POST["name"]=="" ||
   !isset($_POST["email"]) || $_POST["email"]=="" ||
+  !isset($_POST["status"]) || $_POST["status"]=="" ||
   !isset($_POST["naiyou"]) || $_POST["naiyou"]==""
 ){
   exit("ParamError");
@@ -11,6 +12,7 @@ if(
 //1. POSTデータ取得
 $name   = $_POST["name"];
 $email  = $_POST["email"];
+$status  = $_POST["status"];
 $naiyou = $_POST["naiyou"];
 
 //2. DB接続します(エラー処理追加)
@@ -22,11 +24,12 @@ try {
 
 
 //３．データ登録SQL作成
-$stmt = $pdo->prepare("INSERT INTO gs_an_table(id, name, email, naiyou,
-indate )VALUES(NULL, :a1, :a2, :a3, sysdate())");
+$stmt = $pdo->prepare("INSERT INTO gs_bm_table(id, book, url, status, comment,
+indate )VALUES(NULL, :a1, :a2, :a3, :a4, sysdate())");
 $stmt->bindValue(':a1', $name);
 $stmt->bindValue(':a2', $email);
-$stmt->bindValue(':a3', $naiyou);
+$stmt->bindValue(':a3', $status);
+$stmt->bindValue(':a4', $naiyou);
 $status = $stmt->execute();
 
 //４．データ登録処理後
