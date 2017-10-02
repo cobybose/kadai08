@@ -22,8 +22,8 @@
   <div class="jumbotron">
    <fieldset>
     <legend>ブックマーク</legend>
-     <label>名前：<input type="text" name="name"></label><br>
-     <label>Email：<input type="text" name="email"></label><br>
+     <label>書籍名：<input type="text" name="name"></label><br>
+     <label>URL：<input type="text" name="email"></label><br>
      <label><textArea name="naiyou" rows="4" cols="40"></textArea></label><br>
      <input type="submit" value="送信">
     </fieldset>
